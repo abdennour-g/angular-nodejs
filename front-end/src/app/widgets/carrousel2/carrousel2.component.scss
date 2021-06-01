@@ -1,0 +1,19 @@
+.carousel-item {
+    &.active,
+    &.carousel-item-right,
+    &.carousel-item-next {
+        display: flex !important;
+        flex-wrap: wrap;
+    }
+}
+
+.mdb-img {
+    width: 100px;
+    margin: 15px auto;
+}
+
+.mdb-block {
+    height: 300px !important;
+    text-align: center;
+    margin-left: 20px;
+}

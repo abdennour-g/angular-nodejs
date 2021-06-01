@@ -1,0 +1,24 @@
+<footer class="col-xl-12">
+    <div class="container-fluid col-sm-10 offset-sm-1">
+        <app-elfooter *ngFor="let tab of tab_footer" [tab_el_footer]="tab"></app-elfooter>
+    </div>
+    <div class="container-fluid ombre col-xl-12 p-1">
+        <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo justify-content-between ombre col-sm-10 offset-sm-1">
+            <mdb-navbar-brand>
+                <a class="navbar-brand coyright"> {{ copyright }}</a>
+            </mdb-navbar-brand>
+            <links>
+                <form class="form-inline waves-light waves-light ml-auto" mdbWavesEffect>
+                    <span class="l_coyright">S'inscrire à la newsletter</span>
+
+                    <div class="md-form my-0">
+                        <input class="form-control mr-sm-2" type="text" name="email" id="email" placeholder="Votre Email" aria-label="email" />
+                        <button mdbBtn color="success" outline="true" size="sm" class="my-0 waves-light" type="submit" mdbWavesEffect>
+              <mdb-icon fas icon="arrow-right"></mdb-icon>
+            </button>
+                    </div>
+                </form>
+            </links>
+        </mdb-navbar>
+    </div>
+</footer>

@@ -1,0 +1,78 @@
+<header class="col-xl-12">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo navbar-head col-sm-10 offset-sm-1">
+        <!-- Navbar brand -->
+        <mdb-navbar-brand>
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/logo2.png" class="d-inline-block align-top avatar" alt="" />
+            </a>
+        </mdb-navbar-brand>
+        <!-- Collapsible content -->
+        <links>
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link waves-light" routerLink="/" mdbWavesEffect>Acceuil<span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect>Nos activités</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light" mdbWavesEffect>Services</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link waves-light" mdbWavesEffect>Emplacements</a>
+                </li>
+
+                <!-- Dropdown -->
+                <li class="nav-item dropdown" dropdown>
+                    <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            Contacter nous<span class="caret"></span
+          ></a>
+                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Action</a
+            >
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#"
+              >Another action</a
+            >
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#"
+              >Something else here</a
+            >
+            <div class="divider dropdown-divider"></div>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#"
+              >Separated link</a
+            >
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" routerLink="/admin" mdbWavesEffect
+            >Adiminstartion</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link waves-light a_yellow"
+            routerLink="/admin"
+            mdbWavesEffect
+          >
+            <mdb-icon fab icon="facebook-f"></mdb-icon
+          ></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light a_yellow" routerLink="/admin" mdbWavesEffect>
+                        <mdb-icon fab icon="twitter"></mdb-icon>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link waves-light a_yellow" routerLink="/admin" mdbWavesEffect>
+                        <mdb-icon fab icon="youtube"></mdb-icon>
+                    </a>
+                </li>
+            </ul>
+            <!-- Links -->
+        </links>
+        <!-- Collapsible content -->
+    </mdb-navbar>
+</header>
+<!--/.Navbar-->

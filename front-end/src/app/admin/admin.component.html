@@ -1,0 +1,117 @@
+<section class="col-sm-10 offset-sm-1">
+    <div class="btn-group line_head" role="group" aria-label="Basic example">
+        <button type="button" mdbBtn color="primary" class="b_op relative waves-light" (click)="add(block_form)" mdbWavesEffect>
+      <mdb-icon fas icon="plus"></mdb-icon>
+    </button>
+        <button type="button" mdbBtn color="warning" class="b_op relative waves-light" (click)="active(tache.id_tache, block_form)" mdbWavesEffect>
+      <mdb-icon fas icon="lightbulb"></mdb-icon>
+    </button>
+        <button type="button" mdbBtn color="dark" class="b_op relative waves-light" (click)="archive(tache.id_tache, block_form)" mdbWavesEffect>
+      <mdb-icon fas icon="file-archive"></mdb-icon>
+    </button>
+        <button type="button" mdbBtn color="success" class="b_op relative waves-light" (click)="update(tache, block_form)" mdbWavesEffect>
+      <mdb-icon fas icon="pencil-alt"></mdb-icon>
+    </button>
+        <button type="button" mdbBtn color="danger" class="b_op relative waves-light" (click)="remove(tache.id_tache, block_form)" mdbWavesEffect>
+      <mdb-icon fas icon="trash-alt"></mdb-icon>
+    </button>
+        <select mdbBtn color="light" class="relative waves-light browser-default custom-select" [(ngModel)]="stat" (ngModelChange)="getSelectedValue()">
+      <option value="1" selected>Statut</option>
+      <option value="1">tous</option>
+      <option value="active">activés</option>
+      <option value="archive">archivés</option>
+    </select>
+        <select mdbBtn color="light" class="relative waves-light browser-default custom-select" [(ngModel)]="categ" (ngModelChange)="getSelectedValue()">
+      <option value="1" selected>Categories</option>
+      <option value="1">tous</option>
+      <option *ngFor="let c of categories" value="{{ c.categorie }}">
+        {{ c.categorie }}
+      </option>
+    </select>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>design</th>
+                <th>categorie</th>
+                <th>statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of taches" [ngClass]="{ selected: a.id_tache == tache.id_tache }" (click)="select(a)">
+                <td>
+                    <span class="sel">{{ a.id_tache }}</span>
+                </td>
+                <td>
+                    <span class="sel">{{ a.design }}</span>
+                </td>
+                <td>
+                    <span class="sel">{{ a.categorie }}</span>
+                </td>
+                <td>
+                    <span class="sel"><mdb-icon
+              far
+              icon="lightbulb"
+              *ngIf="a.statut == 'active'"
+            ></mdb-icon>
+            <mdb-icon
+              far
+              icon="file-archive"
+              *ngIf="a.statut == 'archive'"
+            ></mdb-icon>
+          </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div mdbModal #block_form="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" (click)="block_form.hide()">
+            x
+          </button>
+                    <h4 class="modal-title">{{ title() }}</h4>
+                </div>
+                <div class="modal-body">
+                    <form form #f="ngForm" (ngSubmit)="save(f, block_form)">
+                        <div class="form-group">
+                            <label for="id">id:</label>
+                            <input class="form-control nom" type="text" name="id_" [(ngModel)]="tache.id_tache" disabled />
+                            <input type="hidden" name="id_tache" [(ngModel)]="tache.id_tache" />
+                        </div>
+                        <div class="form-group" *ngIf="type_operation == 'add' || type_operation == 'update'">
+                            <label for="nom">design:</label>
+                            <input class="form-control nom" type="text" name="design" placeholder="Enter design" [(ngModel)]="tache.design" />
+                        </div>
+                        <div class="form-group" *ngIf="type_operation == 'add' || type_operation == 'update'">
+                            <label for="categorie">categorie:</label>
+                            <input class="form-control" type="text" name="categorie" [(ngModel)]="tache.categorie" list="categs" />
+                            <datalist id="categs">
+                <option
+                  *ngFor="let c of categories"
+                  value="{{ c.categorie }}"
+                ></option>
+              </datalist>
+                        </div>
+                        <div class="form-group" *ngIf="type_operation == 'add' || type_operation == 'update'">
+                            <label for="statut">statut:</label>
+                            <select mdbBtn name="statut" color="light" class="relative waves-light browser-default custom-select" [(ngModel)]="tache.statut">
+                <option value="active">activés</option>
+                <option value="archive">archivés</option>
+              </select>
+                        </div>
+                        <input class="btn btn-success" type="submit" value="OK" />
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-info" (click)="block_form.hide()">
+            Fermer
+          </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
